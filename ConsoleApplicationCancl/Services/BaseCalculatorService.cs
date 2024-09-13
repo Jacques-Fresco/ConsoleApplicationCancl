@@ -2,7 +2,7 @@
 
 namespace ConsoleApplicationCancl.Services
 {
-    public abstract class BaseCalculatorService
+    public abstract class BaseCalculatorService : IBaseCalculatorService
     {
         protected readonly List<IOperation> Operations;
 
@@ -11,6 +11,6 @@ namespace ConsoleApplicationCancl.Services
             Operations = operations;
         }
 
-        protected bool IsOperator(string token) => Operations.Any(o => o.CanExecute(token));
+        public bool IsOperator(string token) => Operations.Any(o => o.CanExecute(token));
     }
 }
